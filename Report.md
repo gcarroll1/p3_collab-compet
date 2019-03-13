@@ -38,7 +38,7 @@ My take-aways from the project are:
 
 ## Results 
 
-The agents were able to solve task solved in 211 episodes!	Average Score: 30.11.
+The agents were able to solve task Solved in 1076 episodes. Average score: 0.52.
 ![chart](chart.png)
 
 
