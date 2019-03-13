@@ -1,0 +1,21 @@
+{
+  "experiment_name": "Tennis",
+  "model_type": "DDPG",
+  "num_agents": 2,
+  "buffer_size": 1e6,
+  "batch_size": 1024,
+  "gamma": 0.99,
+  "time_steps": 10,
+  "learn_updates": 10,
+  "target_tau": 1e-3,
+  "lr_actor": 2e-4,
+  "lr_critic": 2e-4,
+  "weight_decay": 0.0,
+  "dropout": 0.2,
+  "mean_windowsize": 100,
+  "t_max": 1000,
+  "target_score": 0.5,
+  "train_episodes": 2500,
+  "test_episodes": 100
+
+}
