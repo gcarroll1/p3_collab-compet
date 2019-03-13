@@ -29,7 +29,7 @@ class Agent:
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(random_seed)
-
+        
         self.buffer_size = int(params.buffer_size)  # replay buffer size
         self.batch_size = params.batch_size         # minibatch size
         self.gamma = params.gamma                   # discount factor
@@ -40,8 +40,6 @@ class Agent:
         self.learn_updates = params.learn_updates   # number of learning updates
         self.time_steps = params.time_steps         # every n time step do update
         self.num_agents = params.num_agents
-
-
 
         # Actor Network (w/ Target Network)
         self.actor_local = Actor(state_size, action_size, random_seed).to(device)
@@ -96,6 +94,11 @@ class Agent:
     
     def reset(self):
         self.noise.reset()
+        if len(self.memory)>10000:
+            self.batch_size = 1024
+        elif len(self.memory)>5000:
+            self.batch_size = 512
+                
 
     def learn(self, experiences, gamma):
         """Update policy and value parameters using given batch of experience tuples.
@@ -168,6 +171,7 @@ class OUNoise:
     def sample(self):
         """Update internal state and return it as a noise sample."""
         x = self.state
+        #dx = self.theta * (self.mu - x) + self.sigma * np.array([random.random() for i in range(len(x))])
         dx = self.theta * (self.mu - x) + self.sigma * np.random.standard_normal(self.size)
         self.state = x + dx
         return self.state

@@ -3,7 +3,7 @@
   "model_type": "DDPG",
   "num_agents": 2,
   "buffer_size": 1e6,
-  "batch_size": 1024,
+  "batch_size": 256,
   "gamma": 0.99,
   "time_steps": 10,
   "learn_updates": 10,
